@@ -1,0 +1,181 @@
+// src/assets/styles/main.scss
+
+// Import Bootstrap's source Sass
+@import "~bootstrap/scss/bootstrap";
+
+// main.scss
+// Importera normalize.css
+//@import '~normalize.css';
+
+// Definiera variabler
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$success-color: #28a745;
+$danger-color: #dc3545;
+$warning-color: #ffc107;
+$info-color: #17a2b8;
+$light-color: #f8f9fa;
+$dark-color: #343a40;
+
+$font-family-base: 'Helvetica Neue', Arial, sans-serif;
+$font-size-base: 16px;
+$line-height-base: 1.5;
+
+// Definiera mixins
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == small {
+    @media (max-width: 600px) { @content; }
+  } @else if $breakpoint == medium {
+    @media (max-width: 900px) { @content; }
+  } @else if $breakpoint == large {
+    @media (max-width: 1200px) { @content; }
+  }
+}
+
+// Grundläggande stilar
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $dark-color;
+  background-color: $light-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: $dark-color;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+  
+  &:hover {
+    color: darken($primary-color, 10%);
+  }
+}
+
+// Layout
+.container {
+  width: 100%;
+  padding: 1rem;
+
+  @include respond-to(small) {
+    width: 90%;
+  }
+
+  @include respond-to(medium) {
+    width: 80%;
+  }
+
+  @include respond-to(large) {
+    width: 70%;
+  }
+}
+
+// Navigationsbar
+.navbar {
+  background-color: $primary-color;
+  padding: 1rem;
+
+  .navbar-brand {
+    color: $light-color;
+    
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+  
+  .navbar-nav .nav-link {
+    color: $light-color;
+    
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+}
+
+// Knappar
+.button {
+  @include border-radius(4px);
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  color: $light-color;
+  background-color: $primary-color;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+// Kortkomponent
+.card {
+  background-color: $light-color;
+  border: 1px solid $secondary-color;
+  padding: 1rem;
+  @include border-radius(8px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+
+  .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-text {
+    margin-bottom: 0.75rem;
+  }
+
+  .card-footer {
+    text-align: right;
+  }
+
+  @include respond-to(small) {
+    padding: 0.75rem;
+  }
+
+  @include respond-to(medium) {
+    padding: 1rem;
+  }
+
+  @include respond-to(large) {
+    padding: 1.25rem;
+  }
+}
+
+// Grid
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.col {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+
+  @include respond-to(small) {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  @include respond-to(medium) {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  @include respond-to(large) {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+  }
+}
