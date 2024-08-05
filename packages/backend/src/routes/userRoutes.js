@@ -6,7 +6,7 @@ const upload = require('../middleware/upload');
 router.post('/', userController.createUser);
 router.get('/', userController.getUsers);
 router.get('/:id', userController.getUserById);
-router.put('/:id', userController.updateUser);
+router.patch('/:id', userController.updateUser);
 router.delete('/:id', userController.deleteUser);
 
 router.post('/upload', upload.single('avatar'), (req, res) => {
