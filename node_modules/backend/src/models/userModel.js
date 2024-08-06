@@ -1,11 +1,13 @@
 const db = require('../database/db');
+const generateRandomId = require('../utils/randomId');
 
 const createUser = async (user) => {
   console.log('Creating user:', user);
   try {
-    const [id] = await db('users').insert(user).returning('id');
+    const id = generateRandomId(10);
+    const [newUser] = await db('users').insert({ id, ...user }).returning('*');
     console.log('User created with ID:', id);
-    return { id, ...user };
+    return newUser;
   } catch (err) {
     console.error('Error creating user:', err);
     throw err;
