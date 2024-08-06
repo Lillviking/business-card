@@ -74,3 +74,5 @@ Thumbs.db
 .env
 .env.test
 .env.production
+node_modules/backend/dev.sqlite
+node_modules/backend/dev.sqlite
