@@ -6,7 +6,7 @@
           <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
               <li class="nav-item" v-if="!isLoggedIn">
-                <button class="btn btn-primary" @click="login">Logga In</button>
+                <router-link to="/login" class="btn btn-primary">Logga In</router-link>
               </li>
               <li class="nav-item" v-if="isLoggedIn">
                 <button class="btn btn-secondary" @click="logout">Logga Ut</button>
@@ -21,14 +21,20 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { useAuthStore } from './stores/auth';
 
 export default {
-  computed: {
-    ...mapGetters(['isLoggedIn'])
+  setup() {
+    const authStore = useAuthStore();
+    return {
+      isLoggedIn: authStore.$state.isLoggedIn,
+      logout: authStore.logout,
+    };
   },
-  methods: {
-    ...mapActions(['login', 'logout'])
+  mounted() {
+    const authStore = useAuthStore();
+    console.log('isLoggedIn:', authStore.$state.isLoggedIn);
+    console.log('user:', authStore.$state.user);
   }
 }
 </script>

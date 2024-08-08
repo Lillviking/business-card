@@ -41,7 +41,9 @@ exports.up = async function(knex) {
  * @returns { Promise<void> }
  */
 exports.down = async function(knex) {
-  // Återställ ändringarna
+  await knex.schema.alterTable('users', function(table) {
+    table.dropColumn('id');
+  });
   await knex.schema.alterTable('users', function(table) {
     table.increments('id').primary();
   });

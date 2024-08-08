@@ -1,7 +1,7 @@
 const User = require('../models/userModel');
 
 // Skapa en ny användare
-exports.createUser = async (req, res) => {
+const createUser = async (req, res) => {
   try {
     const user = req.body;
     console.log('Received request to create user:', user);
@@ -23,7 +23,7 @@ exports.createUser = async (req, res) => {
 };
 
 // Hämta alla användare
-exports.getUsers = async (req, res) => {
+const getUsers = async (req, res) => {
   try {
     const users = await User.getUsers();
     res.json(users);
@@ -33,7 +33,7 @@ exports.getUsers = async (req, res) => {
 };
 
 // Hämta en användare med ID
-exports.getUserById = async (req, res) => {
+const getUserById = async (req, res) => {
   try {
     const id = req.params.id;
     const user = await User.getUserById(id);
@@ -47,7 +47,7 @@ exports.getUserById = async (req, res) => {
 };
 
 // Uppdatera en användare med ID
-exports.updateUser = async (req, res) => {
+const updateUser = async (req, res) => {
   try {
     const id = req.params.id;
     const user = req.body;
@@ -59,7 +59,7 @@ exports.updateUser = async (req, res) => {
 };
 
 // Ta bort en användare med ID
-exports.deleteUser = async (req, res) => {
+const deleteUser = async (req, res) => {
   try {
     const id = req.params.id;
     await User.deleteUser(id);
@@ -68,3 +68,5 @@ exports.deleteUser = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+module.exports = { createUser, getUsers, getUserById, updateUser, deleteUser }
