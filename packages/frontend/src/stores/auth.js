@@ -1,6 +1,6 @@
 // stores/auth.js
 import { defineStore } from 'pinia';
-import { login, register, getCurrentUser } from '../services/authService';
+import { login, register, getCurrentUser } from '../api/authService';
 import { useUserStore } from './user';
 
 export const useAuthStore = defineStore('auth', {
@@ -17,6 +17,9 @@ export const useAuthStore = defineStore('auth', {
     async login(credentials) {
       try {
         const response = await login(credentials);
+
+        console.log("response: ", response)
+
         this.isLoggedIn = true;
         this.userId = response.id;
         this.userRole = response.role;

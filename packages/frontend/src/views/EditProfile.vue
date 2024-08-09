@@ -39,47 +39,61 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { useUserStore } from '../stores/user';
+import { useRouter } from 'vue-router';
+import { ref, onMounted, computed } from 'vue';
 
 export default {
-  data() {
-    return {
-      localUser: {}
+  setup() {
+    const userStore = useUserStore();
+    const router = useRouter();
+    const localUser = ref({});
+
+    const user = computed(() => userStore.user);
+    console.log("inside edit user: ", user)
+
+    onMounted(() => {
+      localUser.value = { ...userStore.getUser };
+    });
+
+    const saveProfile = () => {
+      userStore.updateUser(localUser.value);
+      if (user.value && user.value.id) {
+        router.push(`/profile/${user.value.id}`);
+      } else {
+        console.error('User ID is null or undefined');
+      }
     };
-  },
-  computed: {
-    ...mapGetters(['getUser'])
-  },
-  created() {
-    this.localUser = { ...this.getUser };
-  },
-  methods: {
-    ...mapActions(['updateUser']),
-    saveProfile() {
-      this.updateUser(this.localUser);
-      this.$router.push(`/profile/${this.getUser.id}`);
-    },
-    cancelEdit() {
-      this.$router.push(`/profile/${this.getUser.id}`);
-    },
-    onFileChange(e) {
+
+    const cancelEdit = () => {
+      if (user.value && user.value.id) {
+        router.push(`/profile/${user.value.id}`);
+      } else {
+        console.error('User ID is null or undefined');
+      }
+    };
+
+    const onFileChange = (e) => {
       const file = e.target.files[0];
       if (file) {
         const reader = new FileReader();
         reader.onload = (e) => {
-          this.localUser.avatar = e.target.result;
+          localUser.value.avatar = e.target.result;
         };
         reader.readAsDataURL(file);
       }
-    }
+    };
+
+    return {
+      localUser,
+      saveProfile,
+      cancelEdit,
+      onFileChange
+    };
   }
 }
 </script>
 
 <style scoped>
-
-/* h2 {
-  margin-bottom: 10%;
-} */
 /* Lägg till eventuell CSS här om det behövs */
 </style>

@@ -23,12 +23,14 @@
 <script>
 import { useAuthStore } from '../stores/auth';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 export default {
   setup() {
     const email = ref('');
     const password = ref('');
     const error = ref(null);
+    const router = useRouter();
 
     const authStore = useAuthStore();
 
@@ -36,7 +38,7 @@ export default {
       error.value = null;
       try {
         await authStore.login({ email: email.value, password: password.value });
-        this.$router.push('/');
+        router.push(`/profile/${authStore.userId}`);
       } catch (err) {
         error.value = 'Invalid email or password';
       }

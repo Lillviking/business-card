@@ -51,6 +51,7 @@ const updateUser = async (req, res) => {
   try {
     const id = req.params.id;
     const user = req.body;
+    console.log("UPDATED USER: ", user);
     const updatedUser = await User.updateUser(id, user);
     res.json(updatedUser);
   } catch (err) {

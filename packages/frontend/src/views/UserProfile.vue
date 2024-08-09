@@ -39,9 +39,7 @@ export default {
     const route = useRoute();
 
     const isLoggedIn = computed(() => authStore.isLoggedIn);
-    const user = computed(() => userStore.user);
-
-    console.log("User in userprofile: ", user.value);
+    const user = computed(() => userStore.getUser);
 
     const goToEdit = () => {
       if (user.value) {
@@ -49,11 +47,14 @@ export default {
       }
     };
 
+    console.log("User in userprofile: ", user.value);
+
     // Load the user profile based on the route parameter
     onMounted(async () => {
       const userId = route.params.id;
       if (userId) {
         await userStore.fetchUserProfile(userId);
+        console.log("Fetched user profile:", userStore.getUser);
       } else {
         console.error('No user ID provided in route params');
       }
