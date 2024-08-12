@@ -51,10 +51,6 @@ export const useAuthStore = defineStore('auth', {
       localStorage.removeItem('userId');
       localStorage.removeItem('userRole');
       localStorage.removeItem('token');
-
-      // Återställ userStore till defaultUser
-      const userStore = useUserStore();
-      userStore.resetUser();
     }
   },
   getters: {

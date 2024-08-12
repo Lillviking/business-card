@@ -2,19 +2,23 @@
   <div class="container mt-5">
     <div class="row justify-content-center">
       <div class="col-md-6">
-        <h2 class="text-center">Login</h2>
-        <form @submit.prevent="loginUser">
-          <div class="form-group">
-            <label for="email">Email address</label>
-            <input v-model="email" type="email" class="form-control" id="email" required>
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h2 class="text-center mb-4">Login</h2>
+            <form @submit.prevent="loginUser">
+              <div class="form-group mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input v-model="email" type="email" class="form-control" id="email" required>
+              </div>
+              <div class="form-group mb-4">
+                <label for="password" class="form-label">Password</label>
+                <input v-model="password" type="password" class="form-control" id="password" required>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Logga In</button>
+            </form>
+            <div v-if="error" class="alert alert-danger mt-3 text-center">{{ error }}</div>
           </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input v-model="password" type="password" class="form-control" id="password" required>
-          </div>
-          <button type="submit" class="btn btn-primary btn-block">Logga In</button>
-        </form>
-        <div v-if="error" class="alert alert-danger mt-3">{{ error }}</div>
+        </div>
       </div>
     </div>
   </div>
@@ -55,5 +59,43 @@ export default {
 </script>
 
 <style scoped>
-/* Lägg till eventuell CSS här om det behövs */
+.card {
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+h2 {
+  color: #343a40;
+}
+
+.form-label {
+  font-weight: bold;
+  color: #495057;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+input[type="email"], input[type="password"] {
+  padding: 0.75rem;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+input[type="email"]:focus, input[type="password"]:focus {
+  box-shadow: none;
+  border-color: #007bff;
+}
 </style>

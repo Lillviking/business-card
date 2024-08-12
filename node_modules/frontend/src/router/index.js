@@ -5,11 +5,13 @@ import EditProfile from '../views/EditProfile.vue';
 import Login from '../views/LoginUser.vue';
 import Admin from '../components/AdminRegisterUser.vue';
 import { useAuthStore } from '../stores/auth';
+import Home from '../views/HomePage.vue'
 
 const routes = [
   {
     path: '/',
-    redirect: '/profile/3847726361' // Byt ut 'your-admin-id' med ditt admin ID
+    name: 'Home',
+    component: Home
   },
   {
     path: '/profile/:id',
