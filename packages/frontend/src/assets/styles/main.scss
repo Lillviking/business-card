@@ -6,18 +6,18 @@ $primary-color: #007bff;
 $secondary-color: #6c757d;
 $success-color: #28a745;
 $danger-color: #dc3545;
-$warning-color: #ffc107;
+$warning-color: #e2c059;
 $info-color: #17a2b8;
-$light-color: #f8f9fa;
-$dark-color: #343a40;
+$light-color: #e3ebf1;
+$dark-color: #30363b;
 
-$font-family-base: 'Helvetica Neue', Arial, sans-serif;
+$font-family-base: 'Roboto Slab', sans-serif;
 $font-size-base: 16px;
 $line-height-base: 1.5;
 
 // Färger för bakgrunder och texter
-$background-color: $light-color;
-$text-color: $dark-color;
+$background-color: $dark-color;
+$text-color: $light-color;
 
 // Definiera mixins
 @mixin border-radius($radius) {
@@ -43,10 +43,19 @@ body {
   background-color: $background-color;
   margin: 0;
   padding: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Fyll hela viewporten */
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 500;
+  font-weight: 800;
   margin-bottom: 0.5rem;
   color: $text-color;
 }
@@ -76,6 +85,14 @@ a {
   @include respond-to(large) {
     width: 70%;
   }
+}
+
+.text-box-without-box {
+  max-width: 500px; /* Begränsar bredden för att se bra ut på större skärmar */ /* Inre marginaler för att ge utrymme för texten */
+  background-color: #f9f9f9; /* En mjuk bakgrundsfärg */
+  font-size: 16px; /* Justerar textstorlek */
+  line-height: 1.5; /* Justerar radavstånd för bättre läsbarhet */
+  color: #333; /* Textfärg */
 }
 
 // Navigationsbar
@@ -141,16 +158,16 @@ a {
 
 // Kortkomponent
 .card {
-  background-color: $light-color;
-  border: 1px solid $secondary-color;
+  background-color: #f4f7f8;
+  border: 2px solid #ffffff;
   padding: 1rem;
   @include border-radius(8px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 1rem;
 
   .card-title {
     font-size: 1.25rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 3rem;
   }
 
   .card-text {

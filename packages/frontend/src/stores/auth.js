@@ -18,7 +18,7 @@ export const useAuthStore = defineStore('auth', {
       try {
         const response = await login(credentials);
 
-        console.log("response: ", response)
+        console.log("response: ", response);
 
         this.isLoggedIn = true;
         this.userId = response.id;
@@ -39,9 +39,8 @@ export const useAuthStore = defineStore('auth', {
       }
     },
     async register(userData) {
-        const response = await register(userData);
-        return response.data;
-
+      const response = await register(userData);
+      return response.data;
     },
     logout() {
       this.isLoggedIn = false;
@@ -54,6 +53,6 @@ export const useAuthStore = defineStore('auth', {
     }
   },
   getters: {
-    isAdmin: (state) => state.userRole === 'admin',
+    isAdmin: (state) => state.userRole === 'admin', // Getter för att kontrollera om användaren är admin
   },
 });

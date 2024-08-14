@@ -1,6 +1,5 @@
 <template>
-  <div class="container mt-5">
-    <div class="row justify-content-center">
+  <div class="container d-flex align-items-center justify-content-center min-vh-100">
       <div class="col-md-6">
         <div class="card shadow-sm">
           <div class="card-body">
@@ -20,7 +19,6 @@
           </div>
         </div>
       </div>
-    </div>
   </div>
 </template>
 
@@ -59,9 +57,15 @@ export default {
 </script>
 
 <style scoped>
+.col-md-6 {
+  max-width: 400px;
+  width: 100%; /* Se till att den är responsiv */
+}
+
 .card {
   padding: 2rem;
   border-radius: 8px;
+  max-width: 100%;
 }
 
 h2 {
@@ -98,4 +102,12 @@ input[type="email"]:focus, input[type="password"]:focus {
   box-shadow: none;
   border-color: #007bff;
 }
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 </style>

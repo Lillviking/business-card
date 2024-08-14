@@ -1,27 +1,25 @@
 <template>
-  <div class="container mt-5" v-if="user">
+  <div class="container mt-5 d-flex justify-content-center align-items-center" style="min-height: 100vh;">
     <div class="row justify-content-center">
-      <div class="col-md-6">
-        <h2 class="text-center">Profile</h2>
-        <div class="card">
-          <div class="card-body">
-            <img :src="user.avatar" alt="Avatar" class="rounded-circle mb-3" width="140" height="140">
-            <h5 class="card-title">{{ user.name }}</h5>
+      <div class="col-md-8" v-if="user">
+        <div class="profile-content d-flex align-items-center justify-content-between">
+          <div class="profile-text">
+            <h1 class="card-title">{{ user.name }}</h1>
             <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
             <p class="card-text"><strong>Phone:</strong> {{ user.phone }}</p>
             <p class="card-text"><strong>Employer:</strong> {{ user.employer }}</p>
             <p class="card-text"><strong>About:</strong> {{ user.about }}</p>
             <button v-if="isLoggedIn" @click="goToEdit" class="btn btn-primary">Edit Profile</button>
           </div>
-        </div>
-        <div v-if="!isLoggedIn" class="alert alert-warning mt-3">
-          Please log in to edit your profile.
+          <div class="profile-image">
+            <img :src="user.avatar" alt="Avatar" class="rounded-circle" width="140" height="140">
+          </div>
         </div>
       </div>
+      <div v-else>
+        <p>Loading...</p>
+      </div>
     </div>
-  </div>
-  <div v-else>
-    <p>Loading...</p>
   </div>
 </template>
 
@@ -47,14 +45,10 @@ export default {
       }
     };
 
-    console.log("User in userprofile: ", user.value);
-
-    // Load the user profile based on the route parameter
     onMounted(async () => {
       const userId = route.params.id;
       if (userId) {
         await userStore.fetchUserProfile(userId);
-        console.log("Fetched user profile:", userStore.getUser);
       } else {
         console.error('No user ID provided in route params');
       }
@@ -63,12 +57,31 @@ export default {
     return {
       isLoggedIn,
       user,
-      goToEdit
+      goToEdit,
     };
   }
 }
 </script>
 
 <style scoped>
-/* Lägg till eventuell CSS här om det behövs */
+.profile-content {
+  text-align: left;
+}
+
+.profile-image {
+  margin-left: 20px;
+}
+
+h1 {
+  margin-bottom: 1.5rem; /* Justera detta värde för att lägga till eller minska avståndet */
+  font-size: 4rem;
+}
+
+img {
+  margin-left: 2rem;
+}
+
+button {
+  margin-top: 2rem;
+}
 </style>
