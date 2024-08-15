@@ -1,6 +1,8 @@
 <template>
 	<div id="home" class="home-container">
-		<h1>Business Card</h1>
+<!-- 		<img src="/logo.png" alt="Logo" class="footer-logo"> -->
+		<h1>Polardag Business Card</h1>
+		<p>Personliga visitkort gjort av aluminium</p>
 		<div class="mb-4">
 			<img src="/businesscard.jpg" alt="Business Card" class="custom-img img-fluid rounded shadow-sm">
 		</div>
@@ -52,9 +54,23 @@ export default {
 	height: auto;
 	margin: 0 auto;
 	box-shadow: 2px 2px 8px 4px rgba(255, 255, 255, 0.6) !important;
+	margin-bottom: 4rem;
 }
 
 h1 {
-	margin-bottom: 5rem;
+	margin-bottom: 0.5rem;
+	font-size: 4rem;
+}
+
+p {
+	font-style: italic;
+	font-size: 1.8rem;
+	margin-bottom: 4rem;
+}
+
+.footer-logo {
+  height: 10rem; /* Justera storleken på logotypen */
+  width: 10rem; /* Behåll proportionerna */
+  margin-bottom: 5rem;
 }
 </style>

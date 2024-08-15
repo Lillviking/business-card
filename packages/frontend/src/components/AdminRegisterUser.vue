@@ -20,7 +20,6 @@
   </template>
   
   <script>
-  import { mapActions } from 'vuex';
   
   export default {
     data() {
@@ -30,18 +29,7 @@
         password: ''
       };
     },
-    methods: {
-      ...mapActions('auth', ['register']),
-      registerUser() {
-        this.register({ name: this.name, email: this.email, password: this.password, role: 'user' }).then(() => {
-          this.name = '';
-          this.email = '';
-          this.password = '';
-        }).catch((error) => {
-          console.log(error);
-        });
-      }
-    }
+  
   }
   </script>
   

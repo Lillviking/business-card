@@ -1,7 +1,6 @@
 // Import Bootstrap's source Sass
 @import "~bootstrap/scss/bootstrap";
 
-// Definiera variabler
 $primary-color: #007bff;
 $secondary-color: #6c757d;
 $success-color: #28a745;
@@ -15,11 +14,11 @@ $font-family-base: 'Roboto Slab', sans-serif;
 $font-size-base: 16px;
 $line-height-base: 1.5;
 
-// Färger för bakgrunder och texter
+/* Färger för bakgrunder och texter */
 $background-color: $dark-color;
 $text-color: $light-color;
 
-// Definiera mixins
+/* Definiera mixins */
 @mixin border-radius($radius) {
   border-radius: $radius;
 }
@@ -34,7 +33,11 @@ $text-color: $light-color;
   }
 }
 
-// Grundläggande stilar
+html {
+  /* 10px */
+  font-size: 62.5%;
+}
+/* Grundläggande stilar */
 body {
   font-family: $font-family-base;
   font-size: $font-size-base;
@@ -43,15 +46,23 @@ body {
   background-color: $background-color;
   margin: 0;
   padding: 0;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
+p {
+  font-size: 1.2rem;
+}
+
+/* App container */
 #app {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Fyll hela viewporten */
+  min-height: 100vh; /* Använd min-height istället för height */
+  width: 100%; /* Se till att den täcker hela bredden */
+  flex-direction: column; 
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -69,117 +80,14 @@ a {
   }
 }
 
-// Layout
+/* Container layout */
 .container {
-  width: 100%;
+  max-width: 100%;
   padding: 1rem;
+  margin: auto;
 
   @include respond-to(small) {
-    width: 90%;
-  }
-
-  @include respond-to(medium) {
-    width: 80%;
-  }
-
-  @include respond-to(large) {
-    width: 70%;
-  }
-}
-
-.text-box-without-box {
-  max-width: 500px; /* Begränsar bredden för att se bra ut på större skärmar */ /* Inre marginaler för att ge utrymme för texten */
-  background-color: #f9f9f9; /* En mjuk bakgrundsfärg */
-  font-size: 16px; /* Justerar textstorlek */
-  line-height: 1.5; /* Justerar radavstånd för bättre läsbarhet */
-  color: #333; /* Textfärg */
-}
-
-// Navigationsbar
-.navbar {
-  background-color: $primary-color;
-  padding: 1rem;
-
-  .navbar-brand {
-    color: $light-color;
-    
-    &:hover {
-      color: $secondary-color;
-    }
-  }
-  
-  .navbar-nav .nav-link {
-    color: $light-color;
-    
-    &:hover {
-      color: $secondary-color;
-    }
-  }
-}
-
-// Knappar
-.button, .btn {
-  @include border-radius(4px);
-  padding: 0.5rem 1rem;
-  border: none;
-  cursor: pointer;
-  color: $light-color;
-  background-color: $primary-color;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: darken($primary-color, 10%);
-  }
-
-  &-primary {
-    background-color: $primary-color;
-
-    &:hover {
-      background-color: darken($primary-color, 10%);
-    }
-  }
-
-  &-secondary {
-    background-color: $secondary-color;
-
-    &:hover {
-      background-color: darken($secondary-color, 10%);
-    }
-  }
-
-  &-success {
-    background-color: $success-color;
-
-    &:hover {
-      background-color: darken($success-color, 10%);
-    }
-  }
-}
-
-// Kortkomponent
-.card {
-  background-color: #f4f7f8;
-  border: 2px solid #ffffff;
-  padding: 1rem;
-  @include border-radius(8px);
-  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1rem;
-
-  .card-title {
-    font-size: 1.25rem;
-    margin-bottom: 3rem;
-  }
-
-  .card-text {
-    margin-bottom: 0.75rem;
-  }
-
-  .card-footer {
-    text-align: right;
-  }
-
-  @include respond-to(small) {
-    padding: 0.75rem;
+    padding: 0.5rem;
   }
 
   @include respond-to(medium) {
@@ -187,11 +95,34 @@ a {
   }
 
   @include respond-to(large) {
-    padding: 1.25rem;
+    padding: 1.5rem;
   }
 }
 
-// Grid
+/* Text Box utan box */
+.text-box-without-box {
+  max-width: 100%;
+  background-color: #f9f9f9;
+  padding: 1rem;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+
+  @include respond-to(small) {
+    max-width: 90%;
+    padding: 0.75rem;
+  }
+
+  @include respond-to(medium) {
+    max-width: 80%;
+  }
+
+  @include respond-to(large) {
+    max-width: 70%;
+  }
+}
+
+/* Flexbox för grid och layout */
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -219,21 +150,5 @@ a {
   @include respond-to(large) {
     flex: 0 0 33.3333%;
     max-width: 33.3333%;
-  }
-}
-
-// Fot (footer)
-.footer {
-  background-color: $dark-color;
-  color: $light-color;
-  padding: 1rem;
-  text-align: center;
-
-  a {
-    color: $primary-color;
-    
-    &:hover {
-      color: darken($primary-color, 10%);
-    }
   }
 }

@@ -1,0 +1,68 @@
+/* Basstilar för typografi */
+h1, h2, h3 {
+    font-weight: bold; /* Gemensam fet stil för alla rubriker */
+    line-height: 1.2; /* Lägg till line-height för bättre läsbarhet */
+  }
+  
+  h1 {
+    font-size: 2rem; /* Stor rubrik */
+    margin: 0.5rem 0;
+  }
+  
+  h2 {
+    font-size: 1.6rem; /* Mellanstor rubrik */
+    margin: 0.4rem 0;
+  }
+  
+  h3 {
+    font-size: 1.4rem; /* Mindre rubrik */
+    margin: 0.3rem 0;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    line-height: 1.5; /* Lägg till line-height för text */
+  }
+  
+  /* Media queries för tablets */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    h1 {
+      font-size: 2rem;
+    }
+    h2 {
+      font-size: 1.3rem;
+    }
+    h3 {
+      font-size: 1.2rem;
+    }
+    .nav a {
+      font-size: 1.6rem; /* Mindre text för att spara utrymme */
+      padding: 4px; /* Mindre padding */
+    }
+  }
+  
+  /* Media queries för mobila enheter */
+  @media (max-width: 767px) {
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem; /* Extra marginal för mer andrum */
+    }
+    h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+    }
+    h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+    }
+    .nav a {
+      font-size: 1.2rem; /* Ännu mindre textstorlek för små skärmar */
+      padding: 3px; /* Minskar padding ytterligare */
+      color: #ccc; /* Ljusare färg för bättre synlighet på små enheter */
+    }
+  }
+  

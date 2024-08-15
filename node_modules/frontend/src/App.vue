@@ -1,18 +1,18 @@
 <template>
   <div class="background-image">
     <router-view />
+    <footer>
+        <p>© 2024 Polardag | All rights reserved.</p>
+    </footer>
   </div>
-
-
 </template>
 
 <script>
 </script>
 
-<style>
-
- .background-image {
-  min-height: 100vh;
+<style scoped>
+.background-image {
+  max-height: 100vh;
   min-width: 100vw;
   margin: 0;
   padding: 0;
@@ -21,6 +21,20 @@
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat; 
-} 
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Ändra till flex-start för att placera innehållet högre upp */
+}
+
+footer {
+  margin-top: auto; /* Placerar footern längst ner */
+  display: flex;
+  justify-content: center;
+}
+
+p {
+  margin: 1rem;
+}
 
 </style>
