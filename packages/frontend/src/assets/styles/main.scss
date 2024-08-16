@@ -33,10 +33,9 @@ $text-color: $light-color;
   }
 }
 
-html {
-  /* 10px */
+/* html {
   font-size: 62.5%;
-}
+} */
 /* Grundläggande stilar */
 body {
   font-family: $font-family-base;
@@ -60,7 +59,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Använd min-height istället för height */
+  max-height: 100vh; /* Använd min-height istället för height */
   width: 100%; /* Se till att den täcker hela bredden */
   flex-direction: column; 
 }
@@ -80,23 +79,13 @@ a {
   }
 }
 
-/* Container layout */
-.container {
-  max-width: 100%;
-  padding: 1rem;
-  margin: auto;
-
-  @include respond-to(small) {
-    padding: 0.5rem;
-  }
-
-  @include respond-to(medium) {
-    padding: 1rem;
-  }
-
-  @include respond-to(large) {
-    padding: 1.5rem;
-  }
+.centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  text-align: center;
 }
 
 /* Text Box utan box */

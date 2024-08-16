@@ -1,8 +1,7 @@
 <template>
-  <div class="container d-flex align-items-center justify-content-center min-vh-100">
+  <div class="centered-container">
       <div class="col-md-6">
         <div class="card shadow-sm">
-          <div class="card-body">
             <h2 class="text-center mb-4">Login</h2>
             <form @submit.prevent="loginUser">
               <div class="form-group mb-3">
@@ -17,7 +16,6 @@
             </form>
             <div v-if="error" class="alert alert-danger mt-3 text-center">{{ error }}</div>
           </div>
-        </div>
       </div>
   </div>
 </template>
@@ -101,13 +99,6 @@ input[type="email"], input[type="password"] {
 input[type="email"]:focus, input[type="password"]:focus {
   box-shadow: none;
   border-color: #007bff;
-}
-
-.container {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 </style>

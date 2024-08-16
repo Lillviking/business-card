@@ -73,4 +73,10 @@ p {
   width: 10rem; /* Behåll proportionerna */
   margin-bottom: 5rem;
 }
+
+.btn {
+	font-size: 1.6rem;
+}
+
+
 </style>

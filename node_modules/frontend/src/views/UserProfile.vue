@@ -1,24 +1,22 @@
 <template>
-  <div class="container mt-5 d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-    <div class="row justify-content-center">
-      <div class="col-md-8" v-if="user">
-        <div class="profile-content d-flex align-items-center justify-content-between">
-          <div class="profile-text">
-            <h1 class="card-title">{{ user.name }}</h1>
-            <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
-            <p class="card-text"><strong>Phone:</strong> {{ user.phone }}</p>
-            <p class="card-text"><strong>Employer:</strong> {{ user.employer }}</p>
-            <p class="card-text"><strong>About:</strong> {{ user.about }}</p>
-            <button v-if="isLoggedIn" @click="goToEdit" class="btn btn-primary">Edit Profile</button>
-          </div>
-          <div class="profile-image">
-            <img :src="user.avatar" alt="Avatar" class="rounded-circle" width="140" height="140">
-          </div>
+  <div class="centered-container">
+    <div class="col-md-8" v-if="user">
+      <div class="profile-content d-flex align-items-center justify-content-between">
+        <div class="profile-text">
+          <h1 class="card-title">{{ user.name }}</h1>
+          <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
+          <p class="card-text"><strong>Phone:</strong> {{ user.phone }}</p>
+          <p class="card-text"><strong>Employer:</strong> {{ user.employer }}</p>
+          <p class="card-text"><strong>About:</strong> {{ user.about }}</p>
+          <button v-if="isLoggedIn" @click="goToEdit" class="btn btn-primary mt-4">Edit Profile</button>
+        </div>
+        <div class="profile-image">
+          <img :src="user.avatar" alt="Avatar" class="rounded-circle" width="140" height="140">
         </div>
       </div>
-      <div v-else>
-        <p>Loading...</p>
-      </div>
+    </div>
+    <div v-else>
+      <p>Loading...</p>
     </div>
   </div>
 </template>
@@ -64,24 +62,33 @@ export default {
 </script>
 
 <style scoped>
+.centered-container {
+  display: flex;
+  flex-direction: column; /* Gör det till en kolumnlayout */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem; /* För att undvika att innehållet ligger för nära kanten */
+  box-sizing: border-box; /* Säkerställer att padding räknas in i höjden */
+}
+
 .profile-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%; /* Gör att innehållet tar upp hela kolumnens bredd */
   text-align: left;
 }
 
 .profile-image {
-  margin-left: 20px;
+  margin-left: 2rem;
 }
 
 h1 {
   margin-bottom: 1.5rem; /* Justera detta värde för att lägga till eller minska avståndet */
-  font-size: 4rem;
-}
-
-img {
-  margin-left: 2rem;
+  font-size: 2.5rem;
 }
 
 button {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 </style>
