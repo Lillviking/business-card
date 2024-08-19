@@ -1,22 +1,7 @@
 // Import Bootstrap's source Sass
 @import "~bootstrap/scss/bootstrap";
+@import 'variables';
 
-$primary-color: #007bff;
-$secondary-color: #6c757d;
-$success-color: #28a745;
-$danger-color: #dc3545;
-$warning-color: #e2c059;
-$info-color: #17a2b8;
-$light-color: #e3ebf1;
-$dark-color: #30363b;
-
-$font-family-base: 'Roboto Slab', sans-serif;
-$font-size-base: 16px;
-$line-height-base: 1.5;
-
-/* Färger för bakgrunder och texter */
-$background-color: $dark-color;
-$text-color: $light-color;
 
 /* Definiera mixins */
 @mixin border-radius($radius) {
@@ -36,6 +21,12 @@ $text-color: $light-color;
 /* html {
   font-size: 62.5%;
 } */
+
+
+* {
+  box-sizing: border-box;
+}
+
 /* Grundläggande stilar */
 body {
   font-family: $font-family-base;
@@ -46,8 +37,6 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 p {
@@ -59,7 +48,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: 100vh; /* Använd min-height istället för height */
+  min-height: 100vh; /* Använd min-height istället för height */
   width: 100%; /* Se till att den täcker hela bredden */
   flex-direction: column; 
 }
