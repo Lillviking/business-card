@@ -73,6 +73,7 @@ h2 {
 .form-label {
   font-weight: bold;
   color: #495057;
+  font-size: 1rem;
 }
 
 .btn-primary {
