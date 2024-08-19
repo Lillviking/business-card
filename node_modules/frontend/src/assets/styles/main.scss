@@ -1,33 +1,14 @@
 // Import Bootstrap's source Sass
 @import "~bootstrap/scss/bootstrap";
 @import 'variables';
-
-
-/* Definiera mixins */
-@mixin border-radius($radius) {
-  border-radius: $radius;
-}
-
-@mixin respond-to($breakpoint) {
-  @if $breakpoint == small {
-    @media (max-width: 600px) { @content; }
-  } @else if $breakpoint == medium {
-    @media (max-width: 900px) { @content; }
-  } @else if $breakpoint == large {
-    @media (max-width: 1200px) { @content; }
-  }
-}
-
-/* html {
-  font-size: 62.5%;
-} */
-
+@import 'mixins';
+@import 'layout';
+///////////////////////////////////
 
 * {
   box-sizing: border-box;
 }
 
-/* Grundläggande stilar */
 body {
   font-family: $font-family-base;
   font-size: $font-size-base;
@@ -51,21 +32,6 @@ p {
   min-height: 100vh; /* Använd min-height istället för height */
   width: 100%; /* Se till att den täcker hela bredden */
   flex-direction: column; 
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 800;
-  margin-bottom: 0.5rem;
-  color: $text-color;
-}
-
-a {
-  color: $primary-color;
-  text-decoration: none;
-  
-  &:hover {
-    color: darken($primary-color, 10%);
-  }
 }
 
 .centered-container {

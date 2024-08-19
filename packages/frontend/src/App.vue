@@ -35,6 +35,7 @@ footer {
 
 p {
   margin: 1rem;
+  font-size: 1rem;
 }
 
 </style>

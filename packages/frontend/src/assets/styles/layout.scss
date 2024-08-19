@@ -5,7 +5,7 @@ h1, h2, h3 {
   }
   
   h1 {
-    font-size: 2rem; /* Stor rubrik */
+    font-size: 3rem; /* Stor rubrik */
     margin: 0.5rem 0;
   }
   
@@ -56,13 +56,17 @@ h1, h2, h3 {
       margin-bottom: 0.5rem;
     }
     p {
-      font-size: 0.875rem;
+      font-size: 0.875rem !important; 
       margin-bottom: 0.75rem;
     }
     .nav a {
       font-size: 1.2rem; /* Ännu mindre textstorlek för små skärmar */
       padding: 3px; /* Minskar padding ytterligare */
       color: #ccc; /* Ljusare färg för bättre synlighet på små enheter */
+    }
+    
+    .btn {
+      font-size: 1.2rem !important;
     }
   }
   

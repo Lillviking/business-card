@@ -59,12 +59,10 @@ export default {
 
 h1 {
 	margin-bottom: 0.5rem;
-	font-size: 4rem;
 }
 
 p {
 	font-style: italic;
-	font-size: 1.8rem;
 	margin-bottom: 4rem;
 }
 
@@ -77,6 +75,4 @@ p {
 .btn {
 	font-size: 1.6rem;
 }
-
-
 </style>

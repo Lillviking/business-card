@@ -1,0 +1,15 @@
+// En funktion som kan ta ett argument och kan inkluderas i vilken CSS-regel som helst
+
+@mixin border-radius($radius) {
+    border-radius: $radius;
+  }
+  
+  @mixin respond-to($breakpoint) {
+    @if $breakpoint == small {
+      @media (max-width: 600px) { @content; }
+    } @else if $breakpoint == medium {
+      @media (max-width: 900px) { @content; }
+    } @else if $breakpoint == large {
+      @media (max-width: 1200px) { @content; }
+    }
+  }
