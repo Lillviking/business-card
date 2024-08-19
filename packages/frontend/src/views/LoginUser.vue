@@ -1,5 +1,5 @@
 <template>
-  <div class="centered-container">
+
       <div class="col-md-6">
         <div class="card shadow-sm">
             <h2 class="text-center mb-4">Login</h2>
@@ -17,7 +17,7 @@
             <div v-if="error" class="alert alert-danger mt-3 text-center">{{ error }}</div>
           </div>
       </div>
-  </div>
+
 </template>
 
 <script>
@@ -57,13 +57,14 @@ export default {
 <style scoped>
 .col-md-6 {
   max-width: 400px;
-  width: 100%; /* Se till att den är responsiv */
+  width: 80%; /* Se till att den är responsiv */
 }
 
 .card {
   padding: 2rem;
   border-radius: 8px;
   max-width: 100%;
+  background-color: #fafafa;
 }
 
 h2 {

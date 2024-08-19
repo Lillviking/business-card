@@ -1,5 +1,4 @@
 <template>
-	<div id="home" class="home-container">
 <!-- 		<img src="/logo.png" alt="Logo" class="footer-logo"> -->
 		<h1>Polardag Business Card</h1>
 		<p>Personliga visitkort gjort av aluminium</p>
@@ -10,7 +9,7 @@
 			<router-link v-if="!isLoggedIn" to="/login" class="btn btn-primary btn-lg">Logga In</router-link>
 			<button v-if="isLoggedIn" class="btn btn-secondary btn-lg" @click="logoutUser">Logga Ut</button>
 		</div>
-	</div>
+
 </template>
 
 <script>
@@ -40,14 +39,6 @@ export default {
 </script>
 
 <style scoped>
-.home-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	height: 100vh;
-	text-align: center;
-}
 
 .custom-img {
 	max-width: 300px;
@@ -73,6 +64,6 @@ p {
 }
 
 .btn {
-	font-size: 1.6rem;
+	font-size: 1.4rem;
 }
 </style>

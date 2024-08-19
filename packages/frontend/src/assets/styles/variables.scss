@@ -6,6 +6,7 @@ $warning-color: #e2c059;
 $info-color: #17a2b8;
 $light-color: #e3ebf1;
 $dark-color: #30363b;
+$almost-white: #fafafa;
 
 $font-family-base: 'Roboto Slab', sans-serif;
 $font-size-base: 62.5%;
@@ -13,4 +14,5 @@ $line-height-base: 1.5;
 
 /* Färger för bakgrunder och texter */
 $background-color: $dark-color;
+$background-color-almost-white: $almost-white;
 $text-color: $light-color;
