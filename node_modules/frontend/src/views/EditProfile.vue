@@ -1,5 +1,5 @@
 <template>
-  <div class="centered-container">
+
     <div class="form-container">
       <h2 class="text-center">Edit Profile</h2>
       <form @submit.prevent="saveProfile">
@@ -33,7 +33,7 @@
         </div>
       </form>
     </div>
-  </div>
+
 </template>
 
 <script>
@@ -93,15 +93,6 @@ export default {
 </script>
 
 <style scoped>
-.centered-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 2rem;
-  box-sizing: border-box;
-}
-
 .form-container {
   width: 100%;
   max-width: 600px; /* Öka maxbredden för formuläret */
@@ -167,4 +158,5 @@ label {
   background-color: #5a6268;
   border-color: #545b62;
 }
+
 </style>
