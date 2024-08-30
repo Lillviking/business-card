@@ -40,6 +40,13 @@ const getUserById = async (req, res) => {
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
+
+    // Konverterar från BLOB till base64
+    if(user.avatar) {
+        const base64avatar = user.avatar.toString('base64');
+        user.avatar = `data:image/jpeg;base64,${base64avatar}`;
+    }
+
     res.json(user);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -51,8 +58,20 @@ const updateUser = async (req, res) => {
   try {
     const id = req.params.id;
     const user = req.body;
-    console.log("UPDATED USER: ", user);
+
+    Object.keys(user).forEach(key => {
+        if(user[key] === 'null') {
+            user[key] = null;
+        }
+    })
+
+    if(req.file) {
+        user.avatar = req.file.buffer; //spara filen som en blob
+    } 
+
     const updatedUser = await User.updateUser(id, user);
+
+    // skicka tillbaka uppdaterad användare
     res.json(updatedUser);
   } catch (err) {
     res.status(400).json({ message: err.message });

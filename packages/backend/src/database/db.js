@@ -8,9 +8,6 @@ require('dotenv').config({
 const environment = process.env.NODE_ENV || 'development';
 const connection = knex(config[environment]);
 
-connection.on('query', (query) => {
-    console.log('SQL:', query.sql);
-  });
 
 module.exports = connection;
 
