@@ -6,19 +6,17 @@
           <img :src="user.avatar" alt="Avatar" class="rounded-circle" width="140" height="140">
         </div>
           <h1 class="card-title">{{ user.name }}</h1>
-          <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
-          <p class="card-text"><strong>Phone:</strong> {{ user.phone }}</p>
-          <p class="card-text"><strong>Employer:</strong> {{ user.employer }}</p>
-          <p class="card-text"><strong>About:</strong> {{ user.about }}</p>
+          <p class="card-text" v-if="user.email"><strong>Email:</strong> {{ user.email }}</p>
+          <p class="card-text" v-if="user.phone"><strong>Phone:</strong> {{ user.phone }}</p>
+          <p class="card-text" v-if="user.employer"><strong>Employer:</strong> {{ user.employer }}</p>
+          <p class="card-text" v-if="user.about"><strong>About:</strong> {{ user.about }}</p>
           <button v-if="isLoggedIn" @click="goToEdit" class="btn btn-primary mt-4">Edit Profile</button>
         </div>
-
       </div>
     </div>
     <div v-else>
       <p>Loading...</p>
     </div>
-
 </template>
 
 <script>
@@ -42,6 +40,8 @@ export default {
         router.push(`/edit-profile/${user.value.id}`);
       }
     };
+
+    console.log("USERAVATAR: ", user.value.avatar);
 
     onMounted(async () => {
       const userId = route.params.id;

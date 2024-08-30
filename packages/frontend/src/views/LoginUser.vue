@@ -38,6 +38,7 @@ export default {
       error.value = null;
       try {
         await authStore.login({ email: email.value, password: password.value });
+
         router.push(`/profile/${authStore.userId}`);
       } catch (err) {
         error.value = 'Invalid email or password';

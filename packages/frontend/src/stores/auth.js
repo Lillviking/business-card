@@ -18,8 +18,6 @@ export const useAuthStore = defineStore('auth', {
       try {
         const response = await login(credentials);
 
-        console.log("response: ", response);
-
         this.isLoggedIn = true;
         this.userId = response.id;
         this.userRole = response.role;
