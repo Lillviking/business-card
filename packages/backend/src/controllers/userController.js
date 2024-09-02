@@ -41,11 +41,11 @@ const getUserById = async (req, res) => {
       return res.status(404).json({ message: 'User not found' });
     }
 
-    // Konverterar från BLOB till base64
+/*     // Konverterar från BLOB till base64
     if(user.avatar) {
         const base64avatar = user.avatar.toString('base64');
         user.avatar = `data:image/jpeg;base64,${base64avatar}`;
-    }
+    } */
 
     res.json(user);
   } catch (err) {

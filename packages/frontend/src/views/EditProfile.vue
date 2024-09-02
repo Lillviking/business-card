@@ -63,6 +63,7 @@ export default {
 
             const updatedUserData = { ...localUser.value };
 
+            console.log("AvatarFile: ", localUser.value.avatarFile);
             updatedUserData.avatar = localUser.value.avatarFile;
             delete updatedUserData.avatarFile;
             
@@ -89,6 +90,7 @@ export default {
         const onFileChange = (e) => {
             const file = e.target.files[0];
             if (file) {
+                console.log("Selected file: ", file);
                 localUser.value.avatarFile = file;
                 localUser.value.avatar = URL.createObjectURL(file);
             }

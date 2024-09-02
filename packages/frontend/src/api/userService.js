@@ -7,6 +7,17 @@ const API_URL = 'http://localhost:3000/api/users/';
 export async function fetchUserById(userId) {
     try {
         const response = await axios.get(`${API_URL}${userId}`);
+
+        console.log("get user from BACKEND", JSON.stringify(response));
+
+        if (response.data.avatar) {
+            const blob = await fetch(response.data.avatar).then(r => r.blob());
+            const avatarUrl = URL.createObjectURL(blob);
+            response.data.avatar = avatarUrl;
+        }
+
+        console.log("after STRING: ", JSON.stringify(response));
+
         return response.data;
     } catch (error) {
         console.error('Error fetching user by ID:', error);
